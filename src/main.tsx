@@ -187,7 +187,7 @@ function App() {
           <h1 id="page-title">Chad Luangrath</h1>
           <p className="bio">
             I build thoughtful software systems, lead engineering teams, and care
-            about making work feel a little easier.
+            about making work a little more enjoyable.
           </p>
 
           <nav className="links" aria-label="Profile links">
