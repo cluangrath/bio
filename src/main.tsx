@@ -205,7 +205,7 @@ function App() {
 
         <RecentProjects />
 
-        <p className="footer-note">Thoughtful systems. Human-centered teams.</p>
+        <p className="footer-note">© 2026 Chad Luangrath · NYC</p>
       </div>
     </main>
   );
