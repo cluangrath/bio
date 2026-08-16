@@ -183,7 +183,7 @@ function App() {
             />
           </div>
 
-          <p className="eyebrow">Staff Engineer at Paylocity</p>
+          <p className="eyebrow">Engineering Manager at apiphani</p>
           <h1 id="page-title">Chad Luangrath</h1>
           <p className="bio">
             I build thoughtful software systems, lead engineering teams, and care
