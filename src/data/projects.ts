@@ -13,7 +13,7 @@ export const projects: Project[] = [
     summary:
       'A native Android client for a self-hosted BlueBubbles server, built from scratch in Kotlin with Material 3 and designed to feel at home on the phone.',
     lead:
-      'Navi connects to a BlueBubbles server running on your own Mac and brings those conversations to Android, with a focus on fast launches, smooth scrolling, and a native Material 3 feel.',
+      'Navi connects to your pre-existing BlueBubbles server. Navi is an opinionated client with a focus on reliability, speed, smoothness, and a native Material 3 feel.',
     status: 'Private build, in active development',
     stack: ['Kotlin', 'Material 3', 'Socket.IO', 'Firebase Cloud Messaging'],
     media: {
@@ -78,7 +78,7 @@ export const projects: Project[] = [
       ],
     },
     problem:
-      'I use BlueBubbles every day, and I wanted a client that felt like it belonged on my phone: native Material 3 design, instant launches, smooth scrolling through busy group chats, and a short list of settings that just work. The official app is capable and full of options; Navi is my own take on the same idea, built natively for Android and tuned to how I actually message.',
+      'I use BlueBubbles every day, and I wanted a client that felt a little more modern: native Material 3 design, lightweight, responsive, proper scaling, and a short list of settings that just work. The official BlueBubbles app is capable and full of options; Navi is my own take on the same idea, built natively for Android and tuned to how I actually message.',
     highlights: [
       'Real-time updates over Socket.IO, with Firebase Cloud Messaging as a fallback when the app is in the background.',
       'A reliable outbound queue: messages are never sent twice and go out in order, even after the app is closed mid-send.',
