@@ -3,7 +3,7 @@ import type { ProfileLink } from '../types';
 
 export const profile = {
   name: 'Chad Luangrath',
-  role: 'Staff Engineer at Paylocity',
+  role: 'Engineering Manager at apiphani',
   location: 'NYC',
   headline:
     'I build thoughtful software systems, lead engineering teams, and turn practical ideas into polished tools.',
