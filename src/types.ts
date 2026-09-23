@@ -8,6 +8,20 @@ export type ProfileLink = {
 
 export type ProjectVisualVariant = 'memo' | 'systems' | 'portfolio';
 
+/** How screenshots are framed: a phone bezel, a browser window, or unframed. */
+export type ProjectDevice = 'phone' | 'browser' | 'none';
+
+export type ProjectScreenshot = {
+  src: string;
+  alt: string;
+  caption?: string;
+};
+
+export type ProjectLink = {
+  label: string;
+  href: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -18,12 +32,20 @@ export type Project = {
   timeline: string;
   status: string;
   stack: string[];
-  visualVariant: ProjectVisualVariant;
+  /** Screenshots, first one used as the cover. Projects without them fall back to `visualVariant`. */
+  media?: {
+    device: ProjectDevice;
+    screenshots: ProjectScreenshot[];
+    /** Optional note shown under the gallery, e.g. how the captures were made. */
+    note?: string;
+  };
+  visualVariant?: ProjectVisualVariant;
+  links?: ProjectLink[];
   problem: string;
   approach: string;
   highlights: string[];
   outcomes: string[];
-  nextSteps: string[];
+  nextSteps?: string[];
 };
 
 export type GitHubRepoResponse = {

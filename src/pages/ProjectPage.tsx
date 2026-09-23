@@ -2,7 +2,8 @@ import { ArrowRight, MoveUpRight } from 'lucide-react';
 import { getNextProject, getProject } from '../data/projects';
 import { projectPath } from '../utils/routing';
 import { AppLink } from '../components/AppLink';
-import { ProjectVisual } from '../components/ProjectVisual';
+import { ProjectCover } from '../components/ProjectCover';
+import { ProjectGallery } from '../components/ProjectGallery';
 import { SiteHeader } from '../components/SiteHeader';
 import { NotFoundPage } from './NotFoundPage';
 
@@ -32,13 +33,15 @@ export function ProjectPage({ slug }: ProjectPageProps) {
               <AppLink className="text-link" to="/">
                 Back home
               </AppLink>
-              <a className="text-link" href="https://github.com/cluangrath" target="_blank" rel="noreferrer">
-                GitHub profile
-                <MoveUpRight aria-hidden="true" size={17} strokeWidth={1.8} />
-              </a>
+              {project.links?.map((link) => (
+                <a className="text-link" href={link.href} key={link.href} target="_blank" rel="noreferrer">
+                  {link.label}
+                  <MoveUpRight aria-hidden="true" size={17} strokeWidth={1.8} />
+                </a>
+              ))}
             </div>
           </div>
-          <ProjectVisual label={`${project.title} visual`} variant={project.visualVariant} />
+          <ProjectCover project={project} priority />
         </section>
 
         <dl className="project-meta" aria-label={`${project.title} project details`}>
@@ -73,6 +76,8 @@ export function ProjectPage({ slug }: ProjectPageProps) {
           </div>
         </section>
 
+        <ProjectGallery project={project} />
+
         <section className="project-detail-grid" aria-label="Project details">
           <div className="detail-panel">
             <h2>Technical Highlights</h2>
@@ -90,23 +95,27 @@ export function ProjectPage({ slug }: ProjectPageProps) {
               ))}
             </ul>
           </div>
-          <div className="detail-panel">
-            <h2>Next Steps</h2>
-            <ul>
-              {project.nextSteps.map((nextStep) => (
-                <li key={nextStep}>{nextStep}</li>
-              ))}
-            </ul>
-          </div>
+          {project.nextSteps && project.nextSteps.length > 0 && (
+            <div className="detail-panel">
+              <h2>Next Steps</h2>
+              <ul>
+                {project.nextSteps.map((nextStep) => (
+                  <li key={nextStep}>{nextStep}</li>
+                ))}
+              </ul>
+            </div>
+          )}
         </section>
 
-        <AppLink className="next-project" to={projectPath(nextProject.slug)}>
-          <span>
-            <span className="project-kicker">Next project</span>
-            {nextProject.title}
-          </span>
-          <ArrowRight aria-hidden="true" size={22} strokeWidth={1.8} />
-        </AppLink>
+        {nextProject && (
+          <AppLink className="next-project" to={projectPath(nextProject.slug)}>
+            <span>
+              <span className="project-kicker">Next project</span>
+              {nextProject.title}
+            </span>
+            <ArrowRight aria-hidden="true" size={22} strokeWidth={1.8} />
+          </AppLink>
+        )}
       </article>
     </main>
   );

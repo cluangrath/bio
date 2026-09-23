@@ -1,103 +1,72 @@
 import type { Project } from '../types';
 
+/**
+ * Portfolio entries, in display order. The first project is featured full-width on the homepage;
+ * the rest flow into a responsive grid, so adding a project is a data-only change here plus its
+ * screenshots under `public/projects/<slug>/`.
+ */
 export const projects: Project[] = [
   {
-    slug: 'voice-memo-manager',
-    title: 'Voice Memo Manager',
-    kicker: 'Private Android productivity app',
+    slug: 'navi',
+    title: 'Navi',
+    kicker: 'Android iMessage client',
     summary:
-      'A focused tool for organizing, searching, and reconciling exported voice notes from messaging workflows.',
+      'A native Android client for BlueBubbles that brings iMessage group chats, tapbacks, threads, and media to an Android phone, built from scratch in Kotlin and Jetpack Compose.',
     lead:
-      'This sample page is set up for a closed-source project writeup: what problem it solves, the technical shape, the decisions worth discussing, and the impact without exposing private code.',
-    role: 'Solo product engineering',
-    timeline: '2025 to present',
-    status: 'Private build',
-    stack: ['Kotlin', 'Jetpack Compose', 'Room', 'Android', 'SQLite'],
-    visualVariant: 'memo',
+      'iMessage only runs on Apple hardware. BlueBubbles relays it through a Mac server; Navi is my from-scratch Android client for that server, built to feel as fast and native as the phone’s own messaging app.',
+    role: 'Solo design and engineering',
+    timeline: 'April 2026 to present',
+    status: 'Private build, in active development',
+    stack: [
+      'Kotlin',
+      'Jetpack Compose',
+      'Material 3',
+      'Coroutines & Flow',
+      'Socket.IO',
+      'Media3',
+      'SQLite',
+      'Firebase Cloud Messaging',
+    ],
+    media: {
+      device: 'phone',
+      screenshots: [
+        {
+          src: '/projects/navi/list-light.jpg',
+          alt: 'Navi chat list with three pinned conversations, unread indicators, and recent chats.',
+          caption: 'Chat list with pinned conversations and unread indicators',
+        },
+        {
+          src: '/projects/navi/convo-light.jpg',
+          alt: 'A Navi group conversation showing a shared photo with heart and emphasis tapbacks, a laugh reaction, and read receipts.',
+          caption: 'Group conversation with tapbacks, an inline photo, and read receipts',
+        },
+        {
+          src: '/projects/navi/list-dark.jpg',
+          alt: 'Navi chat list in the dark theme.',
+          caption: 'Dark theme chat list',
+        },
+        {
+          src: '/projects/navi/convo-dark.jpg',
+          alt: 'A Navi group conversation in the dark theme.',
+          caption: 'Dark theme conversation',
+        },
+      ],
+      note: 'Captured from the real app on an Android emulator, running a demo build with fictional contacts and messages.',
+    },
     problem:
-      'Voice notes are easy to create and surprisingly hard to manage once they leave the chat timeline. The project explores how to turn those scattered artifacts into a searchable, reviewable personal archive.',
+      'Moving to Android usually means dropping out of iMessage group chats with friends and family. BlueBubbles solves the transport by relaying through a Mac, but the client decides whether it holds up every day: messages have to arrive instantly, never duplicate or go missing, and the UI has to keep up with busy group chats.',
     approach:
-      'The app treats imported media, metadata, and reconciliation state as first-class domain objects. The UI stays task-oriented: scan, filter, verify, and resolve instead of burying users in generic file-browser behavior.',
+      'Navi is a single-activity Compose app over an MVVM and repository core. A Socket.IO connection delivers real-time events, delta sync reconciles anything missed, and a local SQLite cache lets the chat list and conversations open instantly before the network answers. Larger efforts, such as outbound reliability, feature parity, and jank reduction, each ran as a staged plan with a PRD, a technical design, and explicit test gates.',
     highlights: [
-      'Built a local-first data model for imported media, message metadata, and review state.',
-      'Designed dense Compose screens for repeated review tasks on a phone-sized display.',
-      'Added debug surfaces that make reconciliation issues inspectable without attaching a debugger.',
+      'Real-time messaging over Socket.IO with delta sync, plus Firebase Cloud Messaging when the app is in the background.',
+      'An outbound queue with recipient binding, duplicate prevention, and ordered recovery that survives process death.',
+      'The everyday iMessage surface: tapbacks and emoji reactions, threaded replies, mentions, edits and unsends, link previews, stickers, voice memos, and inline video.',
+      'Performance work driven by measured frame metrics: recomposition scoped to what changed, event merging off the main thread, and a fixture harness for repeatable jank profiling.',
     ],
     outcomes: [
-      'Created a reliable private workflow for reviewing exported voice notes.',
-      'Kept sensitive personal data local to the device.',
-      'Produced a strong case study for mobile UX, data modeling, and pragmatic debugging.',
-    ],
-    nextSteps: [
-      'Replace this sample copy with screenshots and a short architecture diagram.',
-      'Add a privacy note explaining what stays local and why.',
-      'Write a compact case study around the hardest reconciliation bug.',
-    ],
-  },
-  {
-    slug: 'workflow-automation-lab',
-    title: 'Workflow Automation Lab',
-    kicker: 'Private systems and tooling project',
-    summary:
-      'A collection of small automations that reduce repetitive coordination work across local files, apps, and development workflows.',
-    lead:
-      'Use this page for a behind-the-scenes tooling project where the interesting part is not a public repository, but the judgment behind what to automate and how to keep it maintainable.',
-    role: 'Designer and implementer',
-    timeline: '2024 to present',
-    status: 'Active internal toolkit',
-    stack: ['TypeScript', 'Node.js', 'Shell', 'APIs', 'Local automation'],
-    visualVariant: 'systems',
-    problem:
-      'Personal and engineering workflows accumulate tiny sources of friction. Each one is small enough to tolerate, but together they interrupt focus and make routine work feel heavier than it needs to be.',
-    approach:
-      'The project favors narrow tools with obvious inputs, observable outputs, and minimal ceremony. The goal is not to automate everything; it is to make the right repeated actions dependable.',
-    highlights: [
-      'Codified repeatable project setup and verification tasks.',
-      'Created local scripts around file organization, review loops, and publishing steps.',
-      'Kept tools inspectable so future changes are easier than starting over.',
-    ],
-    outcomes: [
-      'Reduced repeated manual steps in personal development workflows.',
-      'Made project maintenance easier to resume after context switches.',
-      'Created a portfolio story around engineering taste and leverage.',
-    ],
-    nextSteps: [
-      'Swap in real examples of before-and-after workflow time saved.',
-      'Add one sanitized automation walkthrough.',
-      'Separate reusable scripts from project-specific glue.',
-    ],
-  },
-  {
-    slug: 'portfolio-site',
-    title: 'Portfolio Site',
-    kicker: 'Public personal website',
-    summary:
-      'The site you are reading: a small static React app designed to tell a better story than a GitHub repo list can.',
-    lead:
-      'This project page can become a meta case study about turning a simple bio page into a portfolio system with curated project narratives.',
-    role: 'Product, design, and engineering',
-    timeline: '2026',
-    status: 'In progress',
-    stack: ['React', 'TypeScript', 'Vite', 'CSS', 'Cloudflare Pages'],
-    visualVariant: 'portfolio',
-    problem:
-      'A public GitHub feed is a weak proxy for current engineering ability, especially when the most meaningful projects are private, professional, or still in progress.',
-    approach:
-      'The site now separates personal profile content, curated project data, reusable visual components, and route-level pages so each project can have its own narrative.',
-    highlights: [
-      'Introduced typed project data that can be edited without touching layout code.',
-      'Added static-friendly project detail routes for direct sharing.',
-      'Kept the live GitHub section as secondary context instead of the main portfolio.',
-    ],
-    outcomes: [
-      'Created a scaffold for closed-source project storytelling.',
-      'Preserved the simplicity of a static Cloudflare Pages deployment.',
-      'Made future portfolio additions mostly a data-entry and asset task.',
-    ],
-    nextSteps: [
-      'Replace placeholder project copy with real case-study material.',
-      'Add screenshots or short visual captures for each project.',
-      'Tune the homepage once the final project set is known.',
+      'About 46,000 lines of Kotlin backed by roughly 1,500 unit tests.',
+      'The official client’s everyday features, without its settings sprawl.',
+      'Demo and profiling builds that render the real UI over synthetic data, including the screenshots on this page.',
     ],
   },
 ];
@@ -106,7 +75,12 @@ export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);
 }
 
+/** The project after `slug`, wrapping around; undefined when there is nothing else to show. */
 export function getNextProject(slug: string) {
+  if (projects.length < 2) {
+    return undefined;
+  }
+
   const currentIndex = projects.findIndex((project) => project.slug === slug);
 
   if (currentIndex === -1) {
