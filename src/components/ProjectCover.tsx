@@ -19,7 +19,9 @@ export function ProjectCover({ project, priority = false }: ProjectCoverProps) {
   }
 
   const { device } = project.media;
-  const shown = device === 'phone' ? screenshots.slice(0, 2) : screenshots.slice(0, 1);
+  // Covers keep one frame shape: screenshots that override the project's device stay in the gallery.
+  const coverable = screenshots.filter((screenshot) => (screenshot.device ?? device) === device);
+  const shown = coverable.slice(0, device === 'phone' ? 2 : 1);
 
   return (
     <div className={`project-cover project-cover-${device}`} data-count={shown.length}>

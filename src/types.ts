@@ -8,13 +8,15 @@ export type ProfileLink = {
 
 export type ProjectVisualVariant = 'memo' | 'systems' | 'portfolio';
 
-/** How screenshots are framed: a phone bezel, a browser window, or unframed. */
-export type ProjectDevice = 'phone' | 'browser' | 'none';
+/** How screenshots are framed: a phone bezel, an unfolded foldable, a browser window, or unframed. */
+export type ProjectDevice = 'phone' | 'foldable' | 'browser' | 'none';
 
 export type ProjectScreenshot = {
   src: string;
   alt: string;
   caption?: string;
+  /** Overrides the project's `media.device` for one screenshot, e.g. a foldable among phones. */
+  device?: ProjectDevice;
 };
 
 export type ProjectLink = {
@@ -36,15 +38,19 @@ export type Project = {
   media?: {
     device: ProjectDevice;
     screenshots: ProjectScreenshot[];
-    /** Optional note shown under the gallery, e.g. how the captures were made. */
-    note?: string;
   };
   visualVariant?: ProjectVisualVariant;
   links?: ProjectLink[];
+  /** Thanks to the people and projects the work builds on. */
+  credits?: {
+    title: string;
+    body: string;
+    links: ProjectLink[];
+  };
   problem: string;
-  approach: string;
+  approach?: string;
   highlights: string[];
-  outcomes: string[];
+  outcomes?: string[];
   nextSteps?: string[];
 };
 

@@ -9,41 +9,58 @@ export const projects: Project[] = [
   {
     slug: 'navi',
     title: 'Navi',
-    kicker: 'Android iMessage client',
+    kicker: 'BlueBubbles client for Android',
     summary:
-      'A native Android client for BlueBubbles that brings iMessage group chats, tapbacks, threads, and media to an Android phone, built from scratch in Kotlin and Jetpack Compose.',
+      'A native Android client for a self-hosted BlueBubbles server, built from scratch in Kotlin with Material 3 and designed to feel at home on the phone.',
     lead:
-      'iMessage only runs on Apple hardware. BlueBubbles relays it through a Mac server; Navi is my from-scratch Android client for that server, built to feel as fast and native as the phone’s own messaging app.',
+      'Navi connects to a BlueBubbles server running on your own Mac and brings those conversations to Android, with a focus on fast launches, smooth scrolling, and a native Material 3 feel.',
     role: 'Solo design and engineering',
     timeline: 'April 2026 to present',
     status: 'Private build, in active development',
-    stack: [
-      'Kotlin',
-      'Jetpack Compose',
-      'Material 3',
-      'Coroutines & Flow',
-      'Socket.IO',
-      'Media3',
-      'SQLite',
-      'Firebase Cloud Messaging',
-    ],
+    stack: ['Kotlin', 'Material 3', 'Socket.IO', 'Firebase Cloud Messaging'],
     media: {
       device: 'phone',
       screenshots: [
         {
           src: '/projects/navi/list-light.jpg',
           alt: 'Navi chat list with three pinned conversations, unread indicators, and recent chats.',
-          caption: 'Chat list with pinned conversations and unread indicators',
+          caption: 'Chat list with pinned conversations',
         },
         {
           src: '/projects/navi/convo-light.jpg',
-          alt: 'A Navi group conversation showing a shared photo with heart and emphasis tapbacks, a laugh reaction, and read receipts.',
-          caption: 'Group conversation with tapbacks, an inline photo, and read receipts',
+          alt: 'A Navi group conversation showing a shared photo with tapbacks, a laugh reaction, and read receipts.',
+          caption: 'Group conversation with tapbacks and read receipts',
+        },
+        {
+          src: '/projects/navi/thread.jpg',
+          alt: 'Navi reply thread overlay showing a photo and the replies to it above the conversation, with a reply box at the bottom.',
+          caption: 'Reply thread',
+        },
+        {
+          src: '/projects/navi/details.jpg',
+          alt: 'Navi conversation details page for a group chat, with group name and photo options, a pin toggle, and message sync actions.',
+          caption: 'Conversation details',
+        },
+        {
+          src: '/projects/navi/unfolded.jpg',
+          alt: 'Navi on an unfolded foldable, showing the chat list and an open conversation side by side.',
+          caption: 'Unfolded: chat list and conversation side by side',
+          device: 'foldable',
+        },
+        {
+          src: '/projects/navi/wizard-1.jpg',
+          alt: 'The first step of the Navi setup wizard, inviting the user to connect to their BlueBubbles server.',
+          caption: 'Setup wizard',
+        },
+        {
+          src: '/projects/navi/wizard-2.jpg',
+          alt: 'The Navi setup wizard server step, offering to scan a QR code or enter the server address manually.',
+          caption: 'Connecting to a BlueBubbles server',
         },
         {
           src: '/projects/navi/list-dark.jpg',
           alt: 'Navi chat list in the dark theme.',
-          caption: 'Dark theme chat list',
+          caption: 'Dark theme',
         },
         {
           src: '/projects/navi/convo-dark.jpg',
@@ -51,22 +68,24 @@ export const projects: Project[] = [
           caption: 'Dark theme conversation',
         },
       ],
-      note: 'Captured from the real app on an Android emulator, running a demo build with fictional contacts and messages.',
+    },
+    credits: {
+      title: 'Built on BlueBubbles',
+      body: 'Navi only exists because of the BlueBubbles project. Its open-source server does the hard work of relaying messages from a Mac, and its official app set the bar for what a client should do. Huge thanks to the BlueBubbles team and contributors.',
+      links: [
+        { label: 'BlueBubbles on GitHub', href: 'https://github.com/BlueBubblesApp' },
+        { label: 'BlueBubbles Server', href: 'https://github.com/BlueBubblesApp/bluebubbles-server' },
+        { label: 'BlueBubbles App', href: 'https://github.com/BlueBubblesApp/bluebubbles-app' },
+        { label: 'bluebubbles.app', href: 'https://bluebubbles.app' },
+      ],
     },
     problem:
-      'Moving to Android usually means dropping out of iMessage group chats with friends and family. BlueBubbles solves the transport by relaying through a Mac, but the client decides whether it holds up every day: messages have to arrive instantly, never duplicate or go missing, and the UI has to keep up with busy group chats.',
-    approach:
-      'Navi is a single-activity Compose app over an MVVM and repository core. A Socket.IO connection delivers real-time events, delta sync reconciles anything missed, and a local SQLite cache lets the chat list and conversations open instantly before the network answers. Larger efforts, such as outbound reliability, feature parity, and jank reduction, each ran as a staged plan with a PRD, a technical design, and explicit test gates.',
+      'I use BlueBubbles every day, and I wanted a client that felt like it belonged on my phone: native Material 3 design, instant launches, smooth scrolling through busy group chats, and a short list of settings that just work. The official app is capable and full of options; Navi is my own take on the same idea, built natively for Android and tuned to how I actually message.',
     highlights: [
-      'Real-time messaging over Socket.IO with delta sync, plus Firebase Cloud Messaging when the app is in the background.',
-      'An outbound queue with recipient binding, duplicate prevention, and ordered recovery that survives process death.',
-      'The everyday iMessage surface: tapbacks and emoji reactions, threaded replies, mentions, edits and unsends, link previews, stickers, voice memos, and inline video.',
-      'Performance work driven by measured frame metrics: recomposition scoped to what changed, event merging off the main thread, and a fixture harness for repeatable jank profiling.',
-    ],
-    outcomes: [
-      'About 46,000 lines of Kotlin backed by roughly 1,500 unit tests.',
-      'The official client’s everyday features, without its settings sprawl.',
-      'Demo and profiling builds that render the real UI over synthetic data, including the screenshots on this page.',
+      'Real-time updates over Socket.IO, with Firebase Cloud Messaging as a fallback when the app is in the background.',
+      'A reliable outbound queue: messages are never sent twice and go out in order, even after the app is closed mid-send.',
+      'The everyday messaging features: tapbacks and emoji reactions, reply threads, mentions, edits and unsends, link previews, stickers, voice memos, and inline video.',
+      'An adaptive layout that shows the chat list and the conversation side by side on foldables and tablets.',
     ],
   },
 ];

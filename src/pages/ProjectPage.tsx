@@ -69,11 +69,13 @@ export function ProjectPage({ slug }: ProjectPageProps) {
             <h2>Why this exists</h2>
             <p>{project.problem}</p>
           </div>
-          <div className="story-block">
-            <p className="eyebrow">Approach</p>
-            <h2>How it is shaped</h2>
-            <p>{project.approach}</p>
-          </div>
+          {project.approach && (
+            <div className="story-block">
+              <p className="eyebrow">Approach</p>
+              <h2>How it is shaped</h2>
+              <p>{project.approach}</p>
+            </div>
+          )}
         </section>
 
         <ProjectGallery project={project} />
@@ -87,14 +89,16 @@ export function ProjectPage({ slug }: ProjectPageProps) {
               ))}
             </ul>
           </div>
-          <div className="detail-panel">
-            <h2>Outcomes</h2>
-            <ul>
-              {project.outcomes.map((outcome) => (
-                <li key={outcome}>{outcome}</li>
-              ))}
-            </ul>
-          </div>
+          {project.outcomes && project.outcomes.length > 0 && (
+            <div className="detail-panel">
+              <h2>Outcomes</h2>
+              <ul>
+                {project.outcomes.map((outcome) => (
+                  <li key={outcome}>{outcome}</li>
+                ))}
+              </ul>
+            </div>
+          )}
           {project.nextSteps && project.nextSteps.length > 0 && (
             <div className="detail-panel">
               <h2>Next Steps</h2>
@@ -106,6 +110,22 @@ export function ProjectPage({ slug }: ProjectPageProps) {
             </div>
           )}
         </section>
+
+        {project.credits && (
+          <section className="project-credits" aria-labelledby="credits-title">
+            <p className="eyebrow">Credits</p>
+            <h2 id="credits-title">{project.credits.title}</h2>
+            <p>{project.credits.body}</p>
+            <div className="credit-links">
+              {project.credits.links.map((link) => (
+                <a className="text-link" href={link.href} key={link.href} target="_blank" rel="noreferrer">
+                  {link.label}
+                  <MoveUpRight aria-hidden="true" size={17} strokeWidth={1.8} />
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
 
         {nextProject && (
           <AppLink className="next-project" to={projectPath(nextProject.slug)}>
