@@ -14,8 +14,6 @@ export const projects: Project[] = [
       'A native Android client for a self-hosted BlueBubbles server, built from scratch in Kotlin with Material 3 and designed to feel at home on the phone.',
     lead:
       'Navi connects to a BlueBubbles server running on your own Mac and brings those conversations to Android, with a focus on fast launches, smooth scrolling, and a native Material 3 feel.',
-    role: 'Solo design and engineering',
-    timeline: 'April 2026 to present',
     status: 'Private build, in active development',
     stack: ['Kotlin', 'Material 3', 'Socket.IO', 'Firebase Cloud Messaging'],
     media: {

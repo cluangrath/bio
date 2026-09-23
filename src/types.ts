@@ -30,8 +30,8 @@ export type Project = {
   kicker: string;
   summary: string;
   lead: string;
-  role: string;
-  timeline: string;
+  role?: string;
+  timeline?: string;
   status: string;
   stack: string[];
   /** Screenshots, first one used as the cover. Projects without them fall back to `visualVariant`. */

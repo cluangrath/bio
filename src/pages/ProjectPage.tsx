@@ -45,22 +45,19 @@ export function ProjectPage({ slug }: ProjectPageProps) {
         </section>
 
         <dl className="project-meta" aria-label={`${project.title} project details`}>
-          <div>
-            <dt>Role</dt>
-            <dd>{project.role}</dd>
-          </div>
-          <div>
-            <dt>Timeline</dt>
-            <dd>{project.timeline}</dd>
-          </div>
-          <div>
-            <dt>Status</dt>
-            <dd>{project.status}</dd>
-          </div>
-          <div>
-            <dt>Stack</dt>
-            <dd>{project.stack.join(', ')}</dd>
-          </div>
+          {[
+            ['Role', project.role],
+            ['Timeline', project.timeline],
+            ['Status', project.status],
+            ['Stack', project.stack.join(', ')],
+          ]
+            .filter(([, value]) => value)
+            .map(([label, value]) => (
+              <div key={label}>
+                <dt>{label}</dt>
+                <dd>{value}</dd>
+              </div>
+            ))}
         </dl>
 
         <section className="project-story" aria-label="Project story">
