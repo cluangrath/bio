@@ -50,6 +50,16 @@ Use these Cloudflare Pages build settings:
 
 After the GitHub repository is connected to Cloudflare Pages, pushing to the production branch will automatically trigger a new deployment.
 
+## Adding a Project
+
+Projects live in `src/data/projects.ts`, in display order. The first one is featured full-width on the homepage and the rest flow into a responsive grid, so adding a project is a data change:
+
+1. Put screenshots in `public/projects/<slug>/` (JPEG around 600px wide keeps phone captures near 120 KB).
+2. Add an entry to `projects` with `media.device` set to `phone`, `browser`, or `none`. The first screenshot (or first two for phones) becomes the cover; every screenshot appears in the project page gallery.
+3. Projects without screenshots can set `visualVariant` for an illustrated placeholder instead.
+
+Each project gets a page at `/projects/<slug>`.
+
 ## Notes
 
 - The portrait image in `public/chad-luangrath.jpg` is an optimized copy of the original photo with metadata stripped.
