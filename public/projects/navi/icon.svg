@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 18 72 72">
+  <rect x="0" y="0" width="108" height="108" fill="#0B1F3A"/>
+  <g transform="translate(59 56) scale(.84) translate(-54 -54)">
+    <path fill="#183C6A" d="M78,46 C78,66 62,78 44,74 C38,80 30,86 22,88 C28,80 30,74 30,68 C24,60 24,48 30,38 C42,22 78,24 78,46 Z"/>
+    <g fill="#A9EBFF">
+      <circle cx="47" cy="65" r="2.6" fill-opacity=".8"/>
+      <circle cx="39" cy="71" r="3.2" fill-opacity=".65"/>
+      <circle cx="31" cy="76" r="2.2" fill-opacity=".5"/>
+      <circle cx="24" cy="82" r="2.9" fill-opacity=".45"/>
+      <circle cx="35" cy="79" r="1.4" fill-opacity=".4"/>
+      <circle cx="19" cy="76" r="1.5" fill-opacity=".35"/>
+      <path fill-opacity=".55" d="M56,46 C44,30 26,26 18,30 C24,40 42,50 56,50 Z"/>
+      <path fill-opacity=".9" d="M58,48 C48,36 32,36 22,42 C30,48 46,54 58,52 Z"/>
+      <path fill-opacity=".45" d="M56,53 C46,57 34,60 28,66 C36,66 48,62 57,56 Z"/>
+      <path fill-opacity=".7" d="M57,54 C50,60 44,64 40,70 C46,68 54,62 59,57 Z"/>
+    </g>
+    <circle cx="62" cy="50" r="17" fill="#2E7FD6" fill-opacity=".5"/>
+    <circle cx="62" cy="50" r="11.6" fill="#3EC6FF"/>
+    <circle cx="62" cy="50" r="7.7" fill="#9FEBFF"/>
+    <circle cx="62" cy="50" r="3.9" fill="#FFFFFF"/>
+  </g>
+</svg>

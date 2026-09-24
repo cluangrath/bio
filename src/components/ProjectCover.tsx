@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import type { Project } from '../types';
 import { DeviceFrame } from './DeviceFrame';
 import { ProjectVisual } from './ProjectVisual';
@@ -24,7 +25,11 @@ export function ProjectCover({ project, priority = false }: ProjectCoverProps) {
   const shown = coverable.slice(0, device === 'phone' ? 2 : 1);
 
   return (
-    <div className={`project-cover project-cover-${device}`} data-count={shown.length}>
+    <div
+      className={`project-cover project-cover-${device}${project.accent ? ' project-cover-accent' : ''}`}
+      data-count={shown.length}
+      style={project.accent ? ({ '--accent': project.accent } as CSSProperties) : undefined}
+    >
       {shown.map((screenshot, index) => (
         <DeviceFrame
           key={screenshot.src}

@@ -396,6 +396,40 @@ h3 {
   line-height: 1.6;
 }
 
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.card-title h3 {
+  margin-top: 0.15rem;
+}
+
+.app-icon {
+  flex: none;
+  display: block;
+  border-radius: 23%;
+  box-shadow:
+    0 0 0 1px rgba(245, 240, 232, 0.14),
+    0 10px 28px rgba(0, 0, 0, 0.42);
+}
+
+.app-icon-sm {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.app-icon-md {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.app-icon-lg {
+  width: 5.5rem;
+  height: 5.5rem;
+}
+
 .project-kicker {
   color: var(--gold);
   font-size: 0.8rem;
@@ -553,6 +587,11 @@ h3 {
   font-weight: 800;
   line-height: 1.4;
   text-align: center;
+}
+
+.project-status:empty {
+  min-height: 0;
+  margin: 0;
 }
 
 .github-grid {
@@ -781,6 +820,10 @@ h3 {
   transform: translateY(-2px);
 }
 
+.next-project > span {
+  flex: 1;
+}
+
 .next-project span {
   display: grid;
   gap: 0.25rem;
@@ -861,6 +904,18 @@ h3 {
     #121821;
   box-shadow: inset 0 1px 0 rgba(245, 240, 232, 0.08);
   overflow: hidden;
+}
+
+/* A glow in the app's own colour, rising from behind the phones. */
+.project-cover-accent {
+  background:
+    radial-gradient(
+      ellipse 85% 75% at 50% 45%,
+      color-mix(in srgb, var(--accent) 55%, transparent),
+      color-mix(in srgb, var(--accent) 18%, transparent) 50%,
+      transparent 78%
+    ),
+    linear-gradient(180deg, color-mix(in srgb, var(--accent) 10%, #121821), #0f141c);
 }
 
 .project-cover-phone .project-cover-frame {

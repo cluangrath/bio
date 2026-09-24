@@ -96,8 +96,9 @@ export function RecentGitHubRepos() {
   return (
     <section className="github-projects" aria-labelledby="github-title">
       <div className="section-heading compact">
-        <p className="eyebrow">Public GitHub</p>
-        <h2 id="github-title">Recent repository activity stays here as supporting context.</h2>
+        <h2 className="eyebrow" id="github-title">
+          Public GitHub
+        </h2>
       </div>
 
       <p className="project-status" role="status" aria-live="polite">
@@ -105,7 +106,7 @@ export function RecentGitHubRepos() {
           ? 'Fetching latest public repositories...'
           : status === 'fallback'
             ? 'Showing saved repository links while GitHub is unavailable.'
-            : 'Live from GitHub, sorted by most recent push.'}
+            : null}
       </p>
 
       <div className="github-grid">
