@@ -15,8 +15,7 @@ export function FeaturedProjects() {
         <p className="eyebrow">Selected projects</p>
         <h2 id="projects-title">Things I’ve been building.</h2>
         <p>
-          Personal and closed-source work, each with a short write-up of the problem, the approach,
-          and what came out of it.
+          Some personal projects I've been working on
         </p>
       </div>
 
