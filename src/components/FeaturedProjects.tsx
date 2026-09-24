@@ -4,6 +4,11 @@ import { projectPath } from '../utils/routing';
 import { AppLink } from './AppLink';
 import { ProjectCover } from './ProjectCover';
 
+/** The first project is featured; so is a second one that would otherwise sit alone in the grid. */
+function isFeatured(index: number) {
+  return index === 0 || projects.length === 2;
+}
+
 export function FeaturedProjects() {
   if (projects.length === 0) {
     return null;
@@ -22,7 +27,7 @@ export function FeaturedProjects() {
       <div className="project-list">
         {projects.map((project, index) => (
           <article
-            className={`portfolio-card${index === 0 ? ' portfolio-card-featured' : ''}`}
+            className={`portfolio-card${isFeatured(index) ? ' portfolio-card-featured' : ''}`}
             key={project.slug}
           >
             <ProjectCover project={project} priority={index === 0} />
