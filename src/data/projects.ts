@@ -47,7 +47,7 @@ export const projects: Project[] = [
         },
         {
           src: '/projects/memoria/library-dark.jpg',
-          alt: 'Memoria home screen in the dark theme.',
+          alt: 'Memoria home screen in the dark theme, with a paused voice memo in the mini player.',
           caption: 'Dark theme',
         },
         {
