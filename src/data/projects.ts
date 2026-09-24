@@ -7,6 +7,76 @@ import type { Project } from '../types';
  */
 export const projects: Project[] = [
   {
+    slug: 'memoria',
+    title: 'Memoria',
+    kicker: 'Voice memo library for Android',
+    summary:
+      'An offline Android app that turns WhatsApp chat exports into a searchable library of voice memos, with waveforms, playlists, and on-device transcription.',
+    lead:
+      'Memoria imports the ZIP files WhatsApp creates when you export a chat, pulls out the voice memos, and keeps them organized by conversation. Everything stays on the phone: no account, no cloud, and no network access at all.',
+    status: 'Internal beta on Google Play',
+    stack: ['Kotlin', 'Jetpack Compose', 'Media3', 'whisper.cpp'],
+    media: {
+      device: 'phone',
+      screenshots: [
+        {
+          src: '/projects/memoria/library-light.jpg',
+          alt: 'Memoria home screen listing six imported conversations, each with its voice memo count and last import time, above a button to import a WhatsApp export ZIP.',
+          caption: 'Conversations imported from WhatsApp exports',
+        },
+        {
+          src: '/projects/memoria/playback-light.jpg',
+          alt: 'A Memoria conversation playing a voice memo named Old photo albums, with its waveform partly filled in to show progress, and a starred memo named Birthday message below it.',
+          caption: 'Playback with waveforms, named and starred memos',
+        },
+        {
+          src: '/projects/memoria/transcript.jpg',
+          alt: 'A transcription sheet for a voice memo, split into timestamped segments that can be tapped to play from that point.',
+          caption: 'On-device transcript with tap-to-seek timestamps',
+        },
+        {
+          src: '/projects/memoria/search.jpg',
+          alt: 'Memoria search results for the word bring, showing four voice memos from different conversations with the matching spoken words under each.',
+          caption: 'Searching what was said across every conversation',
+        },
+        {
+          src: '/projects/memoria/unfolded-search.jpg',
+          alt: 'Memoria on an unfolded foldable in the dark theme, with search results on the left and the selected voice memo playing on the right.',
+          caption: 'Unfolded: search results beside the player',
+          device: 'foldable',
+        },
+        {
+          src: '/projects/memoria/library-dark.jpg',
+          alt: 'Memoria home screen in the dark theme.',
+          caption: 'Dark theme',
+        },
+        {
+          src: '/projects/memoria/playback-dark.jpg',
+          alt: 'A group conversation in the dark theme playing a voice memo tagged Trips.',
+          caption: 'Dark theme playback with a tag',
+        },
+      ],
+    },
+    credits: {
+      title: 'Built on Whisper',
+      body: "Memoria's transcripts come from OpenAI's open-source Whisper speech recognition model, running on the phone through whisper.cpp. Thanks to both projects and their contributors for making private, offline transcription possible.",
+      links: [
+        { label: 'whisper.cpp on GitHub', href: 'https://github.com/ggml-org/whisper.cpp' },
+        { label: 'Whisper on GitHub', href: 'https://github.com/openai/whisper' },
+      ],
+    },
+    problem:
+      "A lot of the voice memos that matter to me live in WhatsApp: messages from family, friends, and people I want to remember. WhatsApp is built for chatting, not for keeping things, so those memos end up buried in long chat histories where they're hard to find and impossible to replay together. I wanted one private place on my phone to keep them, find them by what was said, and listen to them back to back, without uploading any of it anywhere.",
+    highlights: [
+      'Imports WhatsApp chat export ZIPs, shared straight from WhatsApp or picked from files, and skips memos already in the library.',
+      'Transcribes voice memos on the device, so you can search by the words spoken as well as by contact, tag, or date.',
+      'Inline playback with waveforms, variable speed, bookmarked sections, and continuous playback through a conversation or playlist, with media controls in the notification.',
+      'Organize with tags, stars, custom names, and playlists, and lock private playlists or starred memos behind a fingerprint or the screen lock.',
+      'No network permission, accounts, or telemetry: audio and transcripts never leave the phone.',
+      'An adaptive layout that places lists and playback side by side on foldables and tablets.',
+    ],
+  },
+  {
     slug: 'navi',
     title: 'Navi',
     kicker: 'BlueBubbles client for Android',
