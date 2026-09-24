@@ -1,6 +1,7 @@
 import { MoveUpRight } from 'lucide-react';
 import { projects } from '../data/projects';
 import { projectPath } from '../utils/routing';
+import { AppIcon } from './AppIcon';
 import { AppLink } from './AppLink';
 import { ProjectCover } from './ProjectCover';
 
@@ -32,12 +33,17 @@ export function FeaturedProjects() {
           >
             <ProjectCover project={project} priority={index === 0} />
             <div className="portfolio-card-copy">
-              <p className="project-kicker">{project.kicker}</p>
-              <h3>
-                <AppLink className="card-link" to={projectPath(project.slug)}>
-                  {project.title}
-                </AppLink>
-              </h3>
+              <div className="card-title">
+                {project.icon && <AppIcon src={project.icon} size="md" />}
+                <div>
+                  <p className="project-kicker">{project.kicker}</p>
+                  <h3>
+                    <AppLink className="card-link" to={projectPath(project.slug)}>
+                      {project.title}
+                    </AppLink>
+                  </h3>
+                </div>
+              </div>
               <p>{project.summary}</p>
               <div className="tag-list" aria-label={`${project.title} technology stack`}>
                 {project.stack.slice(0, 4).map((item) => (

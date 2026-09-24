@@ -1,6 +1,7 @@
 import { ArrowRight, MoveUpRight } from 'lucide-react';
 import { getNextProject, getProject } from '../data/projects';
 import { projectPath } from '../utils/routing';
+import { AppIcon } from '../components/AppIcon';
 import { AppLink } from '../components/AppLink';
 import { ProjectCover } from '../components/ProjectCover';
 import { ProjectGallery } from '../components/ProjectGallery';
@@ -26,6 +27,7 @@ export function ProjectPage({ slug }: ProjectPageProps) {
       <article className="project-page">
         <section className="project-hero">
           <div className="project-hero-copy">
+            {project.icon && <AppIcon src={project.icon} size="lg" />}
             <p className="eyebrow">{project.kicker}</p>
             <h1 id="project-title">{project.title}</h1>
             <p className="project-lead">{project.lead}</p>
@@ -126,6 +128,7 @@ export function ProjectPage({ slug }: ProjectPageProps) {
 
         {nextProject && (
           <AppLink className="next-project" to={projectPath(nextProject.slug)}>
+            {nextProject.icon && <AppIcon src={nextProject.icon} size="sm" />}
             <span>
               <span className="project-kicker">Next project</span>
               {nextProject.title}

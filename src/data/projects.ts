@@ -9,11 +9,12 @@ export const projects: Project[] = [
   {
     slug: 'memoria',
     title: 'Memoria',
+    icon: '/projects/memoria/icon.svg',
     kicker: 'WhatsApp voice memo library for Android',
     summary:
       'An Android app that takes WhatsApp chat exports and imports them into a searchable library of voice memos, with waveforms, playlists, and on-device transcription.',
     lead:
-      'Memoria imports voice memos from ZIP export files from WhatsApp and keeps them organized by conversation. Manage your voice memos by creating playlists, categories, and bookmarks. Everything stays on the phone: no account, no cloud, and no network access at all.',
+      'Memoria imports voice memos from ZIP export files from WhatsApp and keeps them organized by conversation. Manage your voice memos by creating playlists, tags, and bookmarks. Everything stays on the phone: no account, no cloud, and no network access at all.',
     status: 'Internal beta on Google Play',
     stack: ['Kotlin', 'Jetpack Compose', 'Media3', 'whisper.cpp'],
     media: {
@@ -79,6 +80,7 @@ export const projects: Project[] = [
   {
     slug: 'navi',
     title: 'Navi',
+    icon: '/projects/navi/icon.svg',
     kicker: 'BlueBubbles client for Android',
     summary:
       'A native Android client for a self-hosted BlueBubbles server, built from scratch in Kotlin with Material 3 and designed to feel at home on the phone.',
