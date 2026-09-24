@@ -9,11 +9,11 @@ export const projects: Project[] = [
   {
     slug: 'memoria',
     title: 'Memoria',
-    kicker: 'Voice memo library for Android',
+    kicker: 'WhatsApp voice memo library for Android',
     summary:
-      'An offline Android app that turns WhatsApp chat exports into a searchable library of voice memos, with waveforms, playlists, and on-device transcription.',
+      'An Android app that takes WhatsApp chat exports and imports them into a searchable library of voice memos, with waveforms, playlists, and on-device transcription.',
     lead:
-      'Memoria imports the ZIP files WhatsApp creates when you export a chat, pulls out the voice memos, and keeps them organized by conversation. Everything stays on the phone: no account, no cloud, and no network access at all.',
+      'Memoria imports voice memos from ZIP export files from WhatsApp and keeps them organized by conversation. Manage your voice memos by creating playlists, categories, and bookmarks. Everything stays on the phone: no account, no cloud, and no network access at all.',
     status: 'Internal beta on Google Play',
     stack: ['Kotlin', 'Jetpack Compose', 'Media3', 'whisper.cpp'],
     media: {
@@ -66,7 +66,7 @@ export const projects: Project[] = [
       ],
     },
     problem:
-      "A lot of the voice memos that matter to me live in WhatsApp: messages from family, friends, and people I want to remember. WhatsApp is built for chatting, not for keeping things, so those memos end up buried in long chat histories where they're hard to find and impossible to replay together. I wanted one private place on my phone to keep them, find them by what was said, and listen to them back to back, without uploading any of it anywhere.",
+      "A lot of the voice memos that matter to me live in WhatsApp: messages from family, friends, and people I want to remember. WhatsApp doesn't provide tools to find, categorize, or listen to a series of voice memos. I wanted one private place on my phone to keep them, manage them, find them by what was said, and listen to them back to back, without uploading any of it anywhere.",
     highlights: [
       'Imports WhatsApp chat export ZIPs, shared straight from WhatsApp or picked from files, and skips memos already in the library.',
       'Transcribes voice memos on the device, so you can search by the words spoken as well as by contact, tag, or date.',
