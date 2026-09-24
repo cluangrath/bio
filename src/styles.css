@@ -325,10 +325,11 @@ h3 {
   animation: arrive 700ms 90ms var(--ease) both;
 }
 
-/* Featured first project spans the row; every other project flows into as many columns as fit. */
+/* Featured projects span the row; every other project flows into as many columns as fit, and when
+   there are fewer of them than columns they stretch to fill the row instead of leaving gaps. */
 .project-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
   gap: 1rem;
 }
 
