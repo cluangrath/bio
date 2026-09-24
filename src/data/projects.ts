@@ -10,6 +10,7 @@ export const projects: Project[] = [
     slug: 'memoria',
     title: 'Memoria',
     icon: '/projects/memoria/icon.svg',
+    accent: '#e0a93c',
     kicker: 'WhatsApp voice memo library for Android',
     summary:
       'An Android app that takes WhatsApp chat exports and imports them into a searchable library of voice memos, with waveforms, playlists, and on-device transcription.',
@@ -81,6 +82,7 @@ export const projects: Project[] = [
     slug: 'navi',
     title: 'Navi',
     icon: '/projects/navi/icon.svg',
+    accent: '#3ec6ff',
     kicker: 'BlueBubbles client for Android',
     summary:
       'A native Android client for a self-hosted BlueBubbles server, built from scratch in Kotlin with Material 3 and designed to feel at home on the phone.',

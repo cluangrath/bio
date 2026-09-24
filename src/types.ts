@@ -30,6 +30,8 @@ export type Project = {
   kicker: string;
   /** Square app icon, shown uncropped; rounded into a launcher-style tile by `AppIcon`. */
   icon?: string;
+  /** A colour from the app icon, glowing behind the cover screenshots. */
+  accent?: string;
   summary: string;
   lead: string;
   role?: string;

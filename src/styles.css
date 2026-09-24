@@ -901,6 +901,18 @@ h3 {
   overflow: hidden;
 }
 
+/* A glow in the app's own colour, rising from behind the phones. */
+.project-cover-accent {
+  background:
+    radial-gradient(
+      ellipse 85% 75% at 50% 45%,
+      color-mix(in srgb, var(--accent) 55%, transparent),
+      color-mix(in srgb, var(--accent) 18%, transparent) 50%,
+      transparent 78%
+    ),
+    linear-gradient(180deg, color-mix(in srgb, var(--accent) 10%, #121821), #0f141c);
+}
+
 .project-cover-phone .project-cover-frame {
   flex: 0 0 auto;
   width: min(44%, 15rem);
